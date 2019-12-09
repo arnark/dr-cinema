@@ -1,8 +1,16 @@
 import React from 'react';
+import { Provider, connect } from 'react-redux';
+import { createStore, applyMiddleware } from 'redux';
+import thunk from 'redux-thunk';
 import AppContainer from './src/routes';
+import reducers from './src/reducers';
+
+const ConnectedSubApp = connect(null)(AppContainer);
 
 export default function App() {
   return (
-    <AppContainer />
+    <Provider store={createStore(reducers, applyMiddleware(thunk))}>
+      <ConnectedSubApp />
+    </Provider>
   );
 }
