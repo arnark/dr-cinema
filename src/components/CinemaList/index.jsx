@@ -10,12 +10,13 @@ const CinemaList = ({ cinemas }) => (
       data={cinemas}
       renderItem={({
         item: {
-          id, name
+          id, name, website
         }
       }) => (
         <CinemaThumbnail
           name={name}
           id={id}
+          website={website}
         />
       )}
       keyExtractor={(cinema) => cinema.id.toString()}
