@@ -1,33 +1,38 @@
 import React from 'react';
 import { View, TextInput, Button, Text } from 'react-native';
 import { connect } from 'react-redux';
-import * as movieActions from '../../actions/movieActions';
+import CinemaList from '../../components/CinemaList';
+import * as cinemaService from '../../services/cinemaService';
+// import * as movieActions from '../../actions/movieActions';
 
 
 class Cinemas extends React.Component {
-  componentDidMount() {
-    // this.props.getAllMovies();
+  constructor(props) {
+    super(props);
+    this.state = {
+      cinemas: []
+    };
+  }
+
+  async componentDidMount() {
+    await this.getCinemas();
+  }
+
+  async getCinemas() {
+    try {
+      const cinemas = await cinemaService.getAllCinemas();
+      this.setState({ cinemas });
+    } catch (error) {
+      console.log(`error: ${error}`);
+    }
   }
 
   render() {
-    // console.log(this.props.getAllMovies())
-
-    async function getData() {
-      try {
-        console.log(await movieActions.getAllMovies)
-        // return await movieService.getAllMovies.promise()
-      } catch (error) {
-        console.log("error" + error);
-      } finally {
-        console.log('done');
-      }
-    }
-
-    getData()
-
     return (
       <View>
-        <Text>Yes</Text>
+        <CinemaList
+          cinemas={this.state.cinemas}
+        />
       </View>
     )
   }

@@ -1,8 +1,7 @@
 import * as movieService from '../services/movieService';
 import * as constants from '../constants';
 
-
-export default async function getAllMovies() {
+export const getAllMovies = async () => {
   return async (dispatch) => {
     try {
       console.log('here');

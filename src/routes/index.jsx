@@ -14,7 +14,7 @@ export default connect(null)(createAppContainer(createStackNavigator({
   Contacts: {
     screen: Cinemas,
     navigationOptions: () => ({
-      title: 'Contacts',
+      title: 'Cinemas',
     }),
   },
   CinemaDetail: {
