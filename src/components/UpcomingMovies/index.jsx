@@ -10,12 +10,14 @@ const MovieList = ({ movies }) => (
       data={movies}
       renderItem={({
         item: {
-          id, name
+          id, title, year, poster
         }
       }) => (
-        <CinemaThumbnail
-          name={name}
+        <UpcomingMovieThumbnail
+          name={title}
           id={id}
+          year={year}
+          poster={poster}
         />
       )}
       keyExtractor={(movies) => movies.id.toString()}
@@ -23,4 +25,4 @@ const MovieList = ({ movies }) => (
   </View>
 );
 
-export default CinemaList;
+export default MovieList;

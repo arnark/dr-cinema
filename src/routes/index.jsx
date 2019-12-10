@@ -14,7 +14,7 @@ export default createAppContainer(createStackNavigator({
   Cinemas: {
     screen: Cinemas,
     navigationOptions: () => ({
-      title: 'Cinemas',
+      title: 'UpcomingMovies',
     }),
   },
   CinemaDetail: {
