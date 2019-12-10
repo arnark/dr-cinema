@@ -10,20 +10,18 @@ export default StyleSheet.create({
     backgroundColor: '#bbbfbf',
     justifyContent: 'center',
     alignItems: 'center',
-    height: 60
+    height: 100
 
   },
 
   title: {
-  fontSize: 20,
+  fontSize: 16,
   flex: 1
 },
 
   release: {
     flex: 1,
     fontStyle: 'italic',
-    fontSize: 20,
-    textDecorationLine: 'underline',
-    color: 'blue'
+    fontSize: 16,
   }
 })
