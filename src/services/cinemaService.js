@@ -10,3 +10,13 @@ export const getAllCinemas = async () => {
     }
   }).then((cinemas) => cinemas.json()).then((cinemas) => cinemas)
 }
+
+export const getCinemaById = async (cinemaId) => {
+  const allCinemas = await getAllCinemas();
+
+  for (let i = 0; i < allCinemas.length; i += 1) {
+    if (allCinemas[i].id === cinemaId) {
+      return allCinemas[i];
+    }
+  }
+}
