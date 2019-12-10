@@ -4,7 +4,7 @@ import CinemaThumbnail from '../CinemaThumbnail';
 
 
 const CinemaList = ({ cinemas }) => (
-  <View>
+  <View style= {{ backgroundColor: '#bbbfbf'}}>
     <FlatList
       numColumns={1}
       data={cinemas}
