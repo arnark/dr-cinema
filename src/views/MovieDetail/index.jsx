@@ -34,6 +34,7 @@ export default class MovieDetail extends React.Component {
       this.setState({ movieDuration: movie[0].durationMinutes });
       this.setState({ movieYear: movie[0].year });
       this.setState({ movieGenres: await movieService.getGenreString(movie[0].genres) });
+      console.log(movie[0])
     } catch (error) {
       console.log(`error: ${error}`);
     }
