@@ -3,7 +3,6 @@ import { View, TextInput, Button, Text } from 'react-native';
 import { connect } from 'react-redux';
 import CinemaList from '../../components/CinemaList';
 import * as cinemaService from '../../services/cinemaService';
-// import * as movieActions from '../../actions/movieActions';
 
 
 class Cinemas extends React.Component {
@@ -32,6 +31,7 @@ class Cinemas extends React.Component {
       <View>
         <CinemaList
           cinemas={this.state.cinemas}
+          navigation={this.props.navigation}
         />
       </View>
     )

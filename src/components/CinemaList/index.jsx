@@ -3,7 +3,7 @@ import { View, FlatList } from 'react-native';
 import CinemaThumbnail from '../CinemaThumbnail';
 
 
-const CinemaList = ({ cinemas }) => (
+const CinemaList = ({ cinemas, navigation }) => (
   <View style= {{ backgroundColor: '#bbbfbf'}}>
     <FlatList
       numColumns={1}
@@ -17,6 +17,7 @@ const CinemaList = ({ cinemas }) => (
           name={name}
           id={id}
           website={website}
+          navigation={navigation}
         />
       )}
       keyExtractor={(cinema) => cinema.id.toString()}

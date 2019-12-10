@@ -5,15 +5,11 @@ import { getAllMovies } from '../../actions/movieActions';
 
 
 export default class Cinemas extends React.Component {
-    componentDidMount() {
-        this.props.getAllMovies();
-    }
-    render() {
-      console.log(this.props.getAllMovies());
-        return (
-            <View>
-              <Text>Yes</Text>
-            </View>
-        )
-    }
+  render() {
+    return (
+      <View>
+        <Text>Yes</Text>
+      </View>
+    )
+  }
 }

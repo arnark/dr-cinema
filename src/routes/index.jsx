@@ -10,8 +10,8 @@ import MovieDetail from '../views/MovieDetail';
 import UpcomingMovies from '../views/UpcomingMovies';
 
 
-export default connect(null)(createAppContainer(createStackNavigator({
-  Contacts: {
+export default createAppContainer(createStackNavigator({
+  Cinemas: {
     screen: Cinemas,
     navigationOptions: () => ({
       title: 'Cinemas',
@@ -51,10 +51,9 @@ export default connect(null)(createAppContainer(createStackNavigator({
       fontSize: 22,
       fontWeight: 'bold',
       textAlign: 'center',
-      justifyContent: "center",
-      alignSelf: "center",
+      justifyContent: 'center',
+      alignSelf: 'center',
     },
     initialRouteName: 'Cinemas',
   },
-}
-)));
+}));
