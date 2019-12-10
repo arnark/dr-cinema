@@ -12,9 +12,9 @@ import UpcomingMovies from '../views/UpcomingMovies';
 
 export default createAppContainer(createStackNavigator({
   Cinemas: {
-    screen: UpcomingMovies,
+    screen: Cinemas,
     navigationOptions: () => ({
-      title: 'UpcomingMovies',
+      title: 'Cinemas',
     }),
   },
   CinemaDetail: {
