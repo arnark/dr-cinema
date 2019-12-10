@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, TextInput, Button, Text } from 'react-native';
 import { connect } from 'react-redux';
-import UpcomingMovies from '../../components/CinemaList';
+import UpcomingMovies from '../../components/UpcomingMovies';
 import * as movieservice from '../../services/movieService';
 // import * as movieActions from '../../actions/movieActions';
 
@@ -18,10 +18,12 @@ class Upcomingmovies extends React.Component {
     await this.getUpcomingMovies();
   }
 
-  async getCinemas() {
+  async getUpcomingMovies() {
     try {
-      const cinemas = await cinemaService.getUpcomingMovies();
-      this.setState({ cinemas });
+      const movies = await movieservice.getUpcomingMovies();
+      console.log('halló')
+      console.log(movies)
+      this.setState({ movies });
     } catch (error) {
       console.log(`error: ${error}`);
     }
