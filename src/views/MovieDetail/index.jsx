@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, TextInput, Button, Text } from 'react-native';
+import { ScrollView, View, TextInput, Button, Text } from 'react-native';
 import { connect } from 'react-redux';
 import * as movieService from '../../services/movieService';
 import MovieInfo from '../../components/MovieInfo';
@@ -16,7 +16,9 @@ export default class MovieDetail extends React.Component {
       moviePlot: '',
       movieDuration: '',
       movieYear: '',
-      movieGenres: ''
+      movieGenres: '',
+      shows: '',
+      showsLoaded: false
     };
   }
 
@@ -26,7 +28,7 @@ export default class MovieDetail extends React.Component {
 
   async getMovieDetails() {
     try {
-      const movie = await movieService.getMovieByMongoId('5def5583f9d1515cff5fac5a')
+      const movie = await movieService.getMovieByMongoId('5def5584f9d1515cff5fac67')
       this.setState({ movieMongoId: movie[0]._id });
       this.setState({ movieTitle: movie[0].title });
       this.setState({ moviePoster: movie[0].poster });
@@ -34,14 +36,18 @@ export default class MovieDetail extends React.Component {
       this.setState({ movieDuration: movie[0].durationMinutes });
       this.setState({ movieYear: movie[0].year });
       this.setState({ movieGenres: await movieService.getGenreString(movie[0].genres) });
+      this.setState({ showsLoaded: true, shows: await movieService.getShowsByCinemaAndMovie(1, this.state.movieMongoId) })
     } catch (error) {
       console.log(`error: ${error}`);
     }
   }
 
   render() {
+    if (this.state.showsLoaded === false) {
+      return (<View><Text>Loading...</Text></View>)
+    }
     return (
-      <View>
+      <ScrollView>
         <MovieInfo
           movieTitle={this.state.movieTitle}
           moviePoster={this.state.moviePoster}
@@ -51,10 +57,9 @@ export default class MovieDetail extends React.Component {
           movieGenres={this.state.movieGenres}
         />
         <MovieTicketInfo
-          movieId={this.state.movieMongoId}
-          cinemaId={1}
+          shows={this.state.shows}
         />
-      </View>
+      </ScrollView>
     )
   }
 }
