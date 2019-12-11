@@ -1,7 +1,8 @@
 import React from 'react';
-import { View, TextInput, Button, Text } from 'react-native';
+import { View, TouchableOpacity, TextInput, Button, Text, ScrollView } from 'react-native';
 import { connect } from 'react-redux';
 import CinemaList from '../../components/CinemaList';
+import NavigationButton from '../../components/CinemaListButton'
 import * as cinemaService from '../../services/cinemaService';
 
 
@@ -28,11 +29,18 @@ class Cinemas extends React.Component {
 
   render() {
     return (
-      <View>
+      <View style ={{flex:1}}>
+      <ScrollView>
         <CinemaList
           cinemas={this.state.cinemas}
           navigation={this.props.navigation}
         />
+      </ScrollView>
+      <TouchableOpacity
+        onPress={() => { this.props.navigation.navigate('UpcomingMovies')}}
+        >
+        <NavigationButton/>
+        </TouchableOpacity>
       </View>
     )
   }

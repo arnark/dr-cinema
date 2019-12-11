@@ -32,8 +32,8 @@ export default createAppContainer(createStackNavigator({
   UpcomingMovies: {
     screen: UpcomingMovies,
     navigationOptions: ({ navigation }) => ({
-      title: 'Upcoming Movies',
-      headerLeft: <HeaderBackButton onPress={() => { navigation.goBack(); }} title="????????????" tintColor="#000" backTitleVisible />
+      title: 'UpcomingMovies',
+      headerLeft: <HeaderBackButton onPress={() => { navigation.goBack(); }} title=" " tintColor="#000" backTitleVisible />
     }),
   }
 },
