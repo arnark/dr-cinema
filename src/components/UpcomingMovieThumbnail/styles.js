@@ -13,12 +13,10 @@ export default StyleSheet.create({
     height: 100
 
   },
-
   title: {
-  fontSize: 16,
-  flex: 1
-},
-
+    fontSize: 16,
+    flex: 1
+  },
   release: {
     flex: 1,
     fontStyle: 'italic',

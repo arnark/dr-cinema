@@ -15,8 +15,8 @@ const CinemaThumbnail = ({ id, name, website, navigation }) => (
     navigation={navigation}
   >
     <View style={styles.container}>
-      <Text style={styles.cinema}> {name} </Text>
-      <Text style={styles.link} onPress={() => Linking.openURL('http://'+ website)}> {website} </Text>
+      <Text style={styles.cinema}>{name}</Text>
+      <Text style={styles.link} onPress={() => Linking.openURL(`http://${website}`)}> {website} </Text>
     </View>
   </TouchableHighlight>
 );

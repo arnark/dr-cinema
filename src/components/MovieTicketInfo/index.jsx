@@ -1,16 +1,12 @@
 import React from 'react';
-import { View, TextInput, Button, Text, FlatList } from 'react-native';
-import * as movieService from '../../services/movieService';
-
+import { View, Text, FlatList, Linking, TouchableOpacity } from 'react-native';
+import styles from './styles';
 
 export default class MovieTicketInfo extends React.Component {
-  async componentDidMount() {
-    await this.getShows();
-  }
-
   render() {
     return (
       <View>
+        <Text style={styles.buyTicketTitle}>Kaupa miða</Text>
         <FlatList
           numColumns={1}
           data={this.props.shows[0]}
@@ -19,10 +15,12 @@ export default class MovieTicketInfo extends React.Component {
               purchase_url, time
             }
           }) => (
-            <View>
-              <Text> {purchase_url} </Text>
-              <Text> {time} </Text>
-            </View>
+            <TouchableOpacity style={styles.ticketBuyButton}>
+              <Text
+                style={styles.btnText}
+                onPress={() => Linking.openURL(purchase_url)}>{time}
+              </Text>
+            </TouchableOpacity>
           )}
           keyExtractor={(purchase_url) => purchase_url}
         />
