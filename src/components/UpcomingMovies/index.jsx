@@ -9,15 +9,10 @@ const MovieList = ({ movies }) => (
       numColumns={1}
       data={movies}
       renderItem={({
-        item: {
-          id, title, year, poster
-        }
+        item
       }) => (
         <UpcomingMovieThumbnail
-          name={title}
-          id={id}
-          year={year}
-          poster={poster}
+          item={item}
         />
       )}
       keyExtractor={(movies) => movies.id.toString()}
@@ -26,3 +21,21 @@ const MovieList = ({ movies }) => (
 );
 
 export default MovieList;
+
+//
+// renderItem={({
+//   item: {
+//     id, title, year, poster
+//   }
+// }) => (
+//   <UpcomingMovieThumbnail
+//     name={title}
+//     id={id}
+//     year={year}
+//     poster={poster}
+//   />
+// )}
+// keyExtractor={(movies) => movies.id.toString()}
+// />
+// </View>
+// );
