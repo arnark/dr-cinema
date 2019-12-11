@@ -7,7 +7,6 @@ export default StyleSheet.create({
     borderWidth: 0.33,
     backgroundColor: '#fff',
     height: 110,
-    borderTop: 0.33,
     borderColor: '#ccc'
   },
   textContainer: {
