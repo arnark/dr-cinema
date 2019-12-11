@@ -25,6 +25,7 @@ const CinemaMovies = ({ cinemaMovies, cinemaId, navigation }) => (
           navigation={navigation}
         />
       )}
+      keyExtractor={(title) => title.toString()}
     />
   </View>
 );
