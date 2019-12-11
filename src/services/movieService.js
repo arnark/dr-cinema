@@ -48,8 +48,8 @@ export const getShowsByCinemaAndMovie = async (cinemaId, movieMongoId) => {
   for (let i = 0; i < movieInfo.length; i += 1) {
     const shows = movieInfo[i].showtimes;
     for (let j = 0; j < shows.length; j += 1) {
-      if (shows[i].cinema.id === cinemaId) {
-        showTimes.push(shows[i].schedule)
+      if (shows[j].cinema.id === cinemaId) {
+        showTimes.push(shows[j].schedule)
       }
     }
   }
