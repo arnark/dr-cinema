@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, FlatList } from 'react-native';
+import { View, FlatList, Text } from 'react-native';
 import UpcomingMovieThumbnail from '../UpcomingMovieThumbnail';
 
 
@@ -21,21 +21,3 @@ const MovieList = ({ movies }) => (
 );
 
 export default MovieList;
-
-//
-// renderItem={({
-//   item: {
-//     id, title, year, poster
-//   }
-// }) => (
-//   <UpcomingMovieThumbnail
-//     name={title}
-//     id={id}
-//     year={year}
-//     poster={poster}
-//   />
-// )}
-// keyExtractor={(movies) => movies.id.toString()}
-// />
-// </View>
-// );

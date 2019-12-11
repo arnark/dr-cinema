@@ -3,25 +3,22 @@ import { StyleSheet } from 'react-native';
 export default StyleSheet.create({
   container: {
     flexDirection: 'row',
-    color: 'blue',
     padding: 5,
     borderWidth: 0.5,
     borderColor: 'white',
-    backgroundColor: '#bbbfbf',
+    backgroundColor: '#232426',
     justifyContent: 'center',
     alignItems: 'center',
     height: 100
 
   },
 
-  title: {
+  text: {
   fontSize: 16,
-  flex: 1
+  flex: 1,
+  color: 'white',
+  fontWeight:'bold'
 },
 
-  release: {
-    flex: 1,
-    fontStyle: 'italic',
-    fontSize: 16,
-  }
+
 })
