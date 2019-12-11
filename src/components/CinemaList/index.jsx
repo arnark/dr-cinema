@@ -7,7 +7,7 @@ const CinemaList = ({ cinemas, navigation }) => (
   <View style= {{ backgroundColor: '#bbbfbf'}}>
     <FlatList
       numColumns={1}
-      data={cinemas}
+      data={cinemas.sort((a,b) => a.name.localeCompare(b.name))}
       renderItem={({
         item: {
           id, name, website
