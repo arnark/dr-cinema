@@ -6,7 +6,7 @@ import styles from './styles';
 const CinemaDetails = ({ cinemaName, cinemaDescription, cinemaAddress, cinemaCity, cinemaPhone, cinemaWebsite }) => (
   <View style={styles.container}>
     <Text style={styles.cinemaTitle}>{cinemaName}</Text>
-    <Text>{cinemaCity}{' | '}{cinemaPhone}{' | '}{cinemaWebsite}</Text>
+    <Text>{cinemaAddress}{' | '}{cinemaCity}{' | '}{cinemaPhone}{' | '}{cinemaWebsite}</Text>
     <Text style={styles.cinemaDescription}>{cinemaDescription}</Text>
   </View>
 );

@@ -31,7 +31,7 @@ export default class CinemaDetail extends React.Component {
       const cinema = await cinemaService.getCinemaById(this.props.navigation.state.params.id);
       this.setState({ cinemaName: cinema.name });
       this.setState({ cinemaDescription: cinema.description });
-      this.setState({ cinemaAddress: cinema.address });
+      this.setState({ cinemaAddress: cinema['address\t'] });
       this.setState({ cinemaCity: cinema.city });
       this.setState({ cinemaPhone: cinema.phone });
       this.setState({ cinemaWebsite: cinema.website });
