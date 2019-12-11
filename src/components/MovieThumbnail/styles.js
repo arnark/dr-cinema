@@ -6,7 +6,7 @@ export default StyleSheet.create({
     padding: 5,
     borderWidth: 0.33,
     backgroundColor: '#fff',
-    height: 100,
+    height: 110,
     borderTop: 0.33,
     borderColor: '#ccc'
   },
@@ -15,7 +15,6 @@ export default StyleSheet.create({
     width: 300
   },
   imageContainer: {
-    padding: 5,
     width: 100
   },
   title: {
@@ -25,5 +24,11 @@ export default StyleSheet.create({
   release: {
     fontStyle: 'italic',
     fontSize: 16,
+  },
+  image: {
+    marginBottom: 5,
+    padding: 10,
+    width: 100,
+    height: 100
   }
 })

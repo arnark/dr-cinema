@@ -20,7 +20,7 @@ const MovieThumbnail = ({ mongoId, title, poster, year, genreString, cinemaId, n
     </View>
     <View style={styles.imageContainer}>
       <Image
-        style={{ width: 100, height: 90 }}
+        style={styles.image}
         source={{ uri: poster }}
       />
     </View>
