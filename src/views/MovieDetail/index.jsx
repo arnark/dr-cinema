@@ -10,7 +10,6 @@ export default class MovieDetail extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      movieMongoId: '',
       movieTitle: '',
       moviePoster: '',
       moviePlot: '',
@@ -28,15 +27,20 @@ export default class MovieDetail extends React.Component {
 
   async getMovieDetails() {
     try {
-      const movie = await movieService.getMovieByMongoId('5def5584f9d1515cff5fac67')
-      this.setState({ movieMongoId: movie[0]._id });
+      const movie = await movieService.getMovieByMongoId(this.props.navigation.state.params.mongoId)
       this.setState({ movieTitle: movie[0].title });
       this.setState({ moviePoster: movie[0].poster });
       this.setState({ moviePlot: movie[0].plot });
       this.setState({ movieDuration: movie[0].durationMinutes });
       this.setState({ movieYear: movie[0].year });
       this.setState({ movieGenres: await movieService.getGenreString(movie[0].genres) });
-      this.setState({ showsLoaded: true, shows: await movieService.getShowsByCinemaAndMovie(1, this.state.movieMongoId) })
+      this.setState({
+        showsLoaded: true,
+        shows: await movieService.getShowsByCinemaAndMovie(
+          this.props.navigation.state.params.cinemaId,
+          this.props.navigation.state.params.mongoId
+        )
+      })
     } catch (error) {
       console.log(`error: ${error}`);
     }

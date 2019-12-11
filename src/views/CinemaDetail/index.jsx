@@ -2,7 +2,9 @@ import React from 'react';
 import { View, TextInput, Button, Text } from 'react-native';
 import { connect } from 'react-redux';
 import CinemaDetails from '../../components/CinemaDetails';
+import CinemaMovies from '../../components/CinemaMovies';
 import * as cinemaService from '../../services/cinemaService';
+import * as movieService from '../../services/movieService';
 
 
 export default class CinemaDetail extends React.Component {
@@ -14,7 +16,9 @@ export default class CinemaDetail extends React.Component {
       cinemaAddress: '',
       cinemaCity: '',
       cinemaPhone: '',
-      cinemaWebsite: ''
+      cinemaWebsite: '',
+      cinemaMovies: '',
+      moviesLoaded: false
     };
   }
 
@@ -31,14 +35,17 @@ export default class CinemaDetail extends React.Component {
       this.setState({ cinemaCity: cinema.city });
       this.setState({ cinemaPhone: cinema.phone });
       this.setState({ cinemaWebsite: cinema.website });
-      //console.log(cinema);
-
+      this.setState({
+        moviesLoaded: true,
+        cinemaMovies: await movieService.getMoviesByCinemaId(this.props.navigation.state.params.id)
+      })
     } catch (error) {
       console.log(`error: ${error}`);
     }
   }
 
   render() {
+    if (this.state.moviesLoaded === false) { return (<View><Text>Loading...</Text></View>) }
     return (
       <View>
         <CinemaDetails
@@ -48,7 +55,12 @@ export default class CinemaDetail extends React.Component {
           cinemaCity={this.state.cinemaCity}
           cinemaPhone={this.state.cinemaPhone}
           cinemaWebsite={this.state.cinemaWebsite}
-          />
+        />
+        <CinemaMovies
+          cinemaMovies={this.state.cinemaMovies}
+          cinemaId={this.props.navigation.state.params.id}
+          navigation={this.props.navigation}
+        />
       </View>
     )
   }

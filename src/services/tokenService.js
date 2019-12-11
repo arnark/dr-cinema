@@ -10,12 +10,11 @@ export const getNewToken = async () => {
   } catch (e) {
     console.log(e);
   }
-  function isExpired(tokenTimestamp) { return tokenTimestamp + 80000 <= new Date() / 1000; }
+  function isExpired(tokenTimestamp) { return tokenTimestamp + 86400 <= new Date() / 1000; }
 
   // Check if timstamp has not been set or is expired
   if (timestamp === null || timestamp === undefined || isExpired(timestamp)) {
     const timestampNow = new Date() / 1000;
-    console.log(timestampNow)
     await SecureStore.setItemAsync('token_timestamp', timestampNow.toString());
 
     // Grab new timestamp

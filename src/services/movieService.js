@@ -55,3 +55,18 @@ export const getShowsByCinemaAndMovie = async (cinemaId, movieMongoId) => {
   }
   return showTimes;
 }
+
+export const getMoviesByCinemaId = async (cinemaId) => {
+  const cinemaMovies = []
+  const movies = await getAllMovies();
+  for (let i = 0; i < movies.length; i += 1) {
+    const shows = movies[i].showtimes;
+    for (let j = 0; j < shows.length; j += 1) {
+      if (shows[j].cinema.id === cinemaId) {
+        movies[i].genreString = await getGenreString(movies[i].genres)
+        cinemaMovies.push(movies[i])
+      }
+    }
+  }
+  return cinemaMovies;
+}
