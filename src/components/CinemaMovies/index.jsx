@@ -1,9 +1,12 @@
 import React from 'react';
 import { View, FlatList, Text } from 'react-native';
 import MovieThumbnail from '../MovieThumbnail';
+import styles from './styles';
+
 
 const CinemaMovies = ({ cinemaMovies, cinemaId, navigation }) => (
-  <View style={{ backgroundColor: '#bbbfbf' }}>
+  <View>
+    <Text style={styles.moviesTitle}>Bíómyndir</Text>
     <FlatList
       numColumns={1}
       data={cinemaMovies}

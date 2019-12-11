@@ -1,15 +1,13 @@
 import React from 'react';
 import { View, Text } from 'react-native';
+import styles from './styles';
 
 
 const CinemaDetails = ({ cinemaName, cinemaDescription, cinemaAddress, cinemaCity, cinemaPhone, cinemaWebsite }) => (
-  <View>
-    <Text>{cinemaName}</Text>
-    <Text>{cinemaDescription}</Text>
-    <Text>{cinemaAddress}</Text>
-    <Text>{cinemaCity}</Text>
-    <Text>{cinemaPhone}</Text>
-    <Text>{cinemaWebsite}</Text>
+  <View style={styles.container}>
+    <Text style={styles.cinemaTitle}>{cinemaName}</Text>
+    <Text>{cinemaCity}{' | '}{cinemaPhone}{' | '}{cinemaWebsite}</Text>
+    <Text style={styles.cinemaDescription}>{cinemaDescription}</Text>
   </View>
 );
 

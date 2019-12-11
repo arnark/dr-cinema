@@ -13,9 +13,11 @@ export const getAllCinemas = async () => {
 
 export const getCinemaById = async (cinemaId) => {
   const allCinemas = await getAllCinemas();
-
   for (let i = 0; i < allCinemas.length; i += 1) {
     if (allCinemas[i].id === cinemaId) {
+      if (allCinemas[i].description === '' || allCinemas[i].description === null) {
+        allCinemas[i].description = 'Þetta kvikmyndahús hefur enga lýsingu.';
+      }
       return allCinemas[i];
     }
   }

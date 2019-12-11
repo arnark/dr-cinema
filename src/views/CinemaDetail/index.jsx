@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, TextInput, Button, Text } from 'react-native';
+import { View, ScrollView, TextInput, Button, Text } from 'react-native';
 import { connect } from 'react-redux';
 import CinemaDetails from '../../components/CinemaDetails';
 import CinemaMovies from '../../components/CinemaMovies';
@@ -47,7 +47,7 @@ export default class CinemaDetail extends React.Component {
   render() {
     if (this.state.moviesLoaded === false) { return (<View><Text>Loading...</Text></View>) }
     return (
-      <View>
+      <ScrollView>
         <CinemaDetails
           cinemaName={this.state.cinemaName}
           cinemaDescription={this.state.cinemaDescription}
@@ -61,7 +61,7 @@ export default class CinemaDetail extends React.Component {
           cinemaId={this.props.navigation.state.params.id}
           navigation={this.props.navigation}
         />
-      </View>
+      </ScrollView>
     )
   }
 }
