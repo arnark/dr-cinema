@@ -22,7 +22,7 @@ export default class MovieTicketInfo extends React.Component {
               </Text>
             </TouchableOpacity>
           )}
-          keyExtractor={(purchase_url) => purchase_url}
+          keyExtractor={(purchase_url, index) => index.toString()}
         />
       </View>
     )
