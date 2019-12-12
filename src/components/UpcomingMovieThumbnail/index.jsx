@@ -5,13 +5,13 @@ import {
 import styles from './styles'
 
 
-const UpcomingMovieThumbnail = ({ item }) => (
+const UpcomingMovieThumbnail = ({ title, ReleaseDate, poster }) => (
   <View style={styles.container}>
-    <Text style={styles.title}> {item.title} </Text>
-    <Text style={styles.release}> {item[["release-dateIS"]]} </Text>
+    <Text style={styles.title}> {title} </Text>
+    <Text style={styles.release}> {ReleaseDate} </Text>
     <Image
           style={{width: 100, height: 90}}
-          source={{uri: item.poster.toString()}}
+          source={{uri: poster.toString()}}
           />
   </View>
 

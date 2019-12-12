@@ -7,12 +7,16 @@ const MovieList = ({ movies }) => (
   <View style= {{ backgroundColor: '#bbbfbf'}}>
     <FlatList
       numColumns={1}
-      data={movies}
+      data={movies.sort((a,b) => b.ReleaseDate.localeCompare(a.ReleaseDate))}
       renderItem={({
-        item
+        item:{
+          title, ReleaseDate,poster
+        }
       }) => (
         <UpcomingMovieThumbnail
-          item={item}
+          title={title}
+          ReleaseDate={ReleaseDate}
+          poster={poster}
         />
       )}
       keyExtractor={(movies) => movies.id.toString()}

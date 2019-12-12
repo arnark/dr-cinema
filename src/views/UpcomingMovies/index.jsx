@@ -21,14 +21,16 @@ class Upcomingmovies extends React.Component {
 
   async getUpcomingMovies() {
     try {
-      const movies = await movieservice.getUpcomingMovies();
-      console.log('halló')
+      const json = await movieservice.getUpcomingMovies();
+      const movies = await JSON.parse(JSON.stringify(json).split('"release-dateIS"').join('"ReleaseDate"'));
       this.setState({ movies });
-      console.log(movies[4]["release-dateIS"])
+      console.log(this.state.movies)
     } catch (error) {
       console.log(`error: ${error}`);
     }
   }
+
+
 
   render() {
     return (
