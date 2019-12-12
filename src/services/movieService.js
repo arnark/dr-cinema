@@ -70,11 +70,3 @@ export const getMoviesByCinemaId = async (cinemaId) => {
   }
   return cinemaMovies;
 }
-
-export const ReleaseDate = 'release-DateIS'
-
-function sortMovieByRelease(movieArray) {
-  movieArray.sort((a,b) => {
-    return a.title.localeCompare(b.title)
-  })
-}
